@@ -1,0 +1,13 @@
+{
+    "name": "yp28/roles-permissions",
+    "description": "Zend Framework 2 module to simplify user permissions.",
+    "require": {
+        "zendframework/zendframework": "2.3.*"
+    },
+    "authors": [
+        {
+            "name": "Yordi Pauptit",
+            "email": "yordipauptit@hotmail.com"
+        }
+    ]
+}
