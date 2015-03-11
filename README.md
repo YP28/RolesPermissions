@@ -4,6 +4,12 @@ Roles and Permissions module for Zend Framework 2.
 
 ## Installation
 
+### Clone repository
+Go to your Zend Framework 2 module folder in your console, and execute:
+```
+git clone https://github.com/YP28/RolesPermissions
+```
+
 ### Database structure
 The database table configuration is also located in the model files:
 ./RolesPermissions/src/Models/Permission.php
