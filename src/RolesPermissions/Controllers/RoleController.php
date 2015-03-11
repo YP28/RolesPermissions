@@ -25,15 +25,24 @@ class RoleController extends AbstractActionController
      */
     public function addAction()
     {
-        // TODO: Implement editAction() method
+        $callbackRoute = $this->params()->fromPost('callbackRoute');
+
+        $this->roleMapper->add($this->params());
+
+        $this->redirect()->toRoute($callbackRoute);
     }
 
     /**
      * Catches post request to edit Role
      */
-    public function editAction()
+    public function updateAction()
     {
-        // TODO: Implement editAction() method
+        $callbackRoute = $this->params()->fromPost('callbackRoute');
+        $roleId = $this->params()->fromPost('role_id');
+
+        $this->roleMapper->update($roleId, $this->params());
+
+        $this->redirect()->toRoute($callbackRoute);
     }
 
     /**
@@ -41,7 +50,12 @@ class RoleController extends AbstractActionController
      */
     public function deleteAction()
     {
-        // TODO: Implement deleteAction() method
+        $callbackRoute = $this->params()->fromPost('callbackRoute');
+        $roleId = $this->params()->fromPost('role_id');
+
+        $this->roleMapper->delete($roleId);
+
+        $this->redirect()->toRoute($callbackRoute);
     }
 
 }

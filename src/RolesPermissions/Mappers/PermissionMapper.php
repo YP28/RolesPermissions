@@ -61,4 +61,64 @@ class PermissionMapper extends MySQLMapper
         return $return;
     }
 
+    /**
+     * @param $params
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function add($params)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $add = $sql->insert(Permission::$table)
+            ->columns(array(
+                'subject',
+                'type',
+            ))
+            ->values(array(
+                $params->fromPost('permission_subject'),
+                $params->fromPost('permission_type'),
+            ));
+
+        $stmt = $sql->prepareStatementForSqlObject($add);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /**
+     * @param $permission_id
+     * @param $params
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function update($permission_id, $params)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $update = $sql->update(Permission::$table)->set(array(
+            'subject' => $params->fromPost('permission_subject'),
+            'type' => $params->fromPost('permission_type')
+        ))->where(array(
+            'id' => $permission_id
+        ));
+
+        $stmt = $sql->prepareStatementForSqlObject($update);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /**
+     * @param $permission_id
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function delete($permission_id)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $update = $sql->delete(Permission::$table)
+            ->where(array('id' => $permission_id));
+
+        $stmt = $sql->prepareStatementForSqlObject($update);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
 }

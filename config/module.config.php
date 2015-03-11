@@ -45,10 +45,10 @@
                                 'type' => 'Zend\Mvc\Router\Http\Method',
                                 'options' => array(
                                     'verb' => 'post',
-                                    'route' => '/edit',
+                                    'route' => '/update',
                                     'defaults' => array(
                                         'controller' => 'RoleController',
-                                        'action' => 'edit'
+                                        'action' => 'update'
                                     ),
                                 ),
                             ),
@@ -87,10 +87,10 @@
                                 'type' => 'Zend\Mvc\Router\Http\Method',
                                 'options' => array(
                                     'verb' => 'post',
-                                    'route' => '/edit',
+                                    'route' => '/update',
                                     'defaults' => array(
                                         'controller' => 'PermissionController',
-                                        'action' => 'edit'
+                                        'action' => 'update'
                                     ),
                                 ),
                             ),

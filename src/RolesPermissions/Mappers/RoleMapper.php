@@ -107,4 +107,61 @@ class RoleMapper extends MySQLMapper
         return $return;
     }
 
+    /**
+     * @param $params
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function add($params)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $add = $sql->insert(Role::$table)
+            ->columns(array(
+                'name'
+            ))
+            ->values(array(
+                $params->fromPost('role_name')
+            ));
+
+        $stmt = $sql->prepareStatementForSqlObject($add);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /**
+     * @param $role_id
+     * @param $params
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function update($role_id, $params)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $update = $sql->update(Role::$table)->set(array(
+            'name' => $params->fromPost('role_name')
+        ))->where(array(
+            'id' => $role_id
+        ));
+
+        $stmt = $sql->prepareStatementForSqlObject($update);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /**
+     * @param integer $role_id
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function delete($role_id)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $update = $sql->delete(Role::$table)
+            ->where(array('id' => $role_id));
+
+        $stmt = $sql->prepareStatementForSqlObject($update);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
 }

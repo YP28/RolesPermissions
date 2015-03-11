@@ -24,15 +24,24 @@ class PermissionController extends AbstractActionController
      */
     public function addAction()
     {
-        // TODO: Implement addAction() method
+        $callbackRoute = $this->params()->fromPost('callbackRoute');
+
+        $this->permissionMapper->add($this->params());
+
+        $this->redirect()->toRoute($callbackRoute);
     }
 
     /**
      * Catches post request to edit Permission
      */
-    public function editAction()
+    public function updateAction()
     {
-        // TODO: Implement editAction() method
+        $callbackRoute = $this->params()->fromPost('callbackRoute');
+        $permissionId = $this->params()->fromPost('permission_id');
+
+        $this->permissionMapper->update($permissionId, $this->params());
+
+        $this->redirect()->toRoute($callbackRoute);
     }
 
     /**
@@ -40,7 +49,12 @@ class PermissionController extends AbstractActionController
      */
     public function deleteAction()
     {
-        // TODO: Implement deleteAction() method
+        $callbackRoute = $this->params()->fromPost('callbackRoute');
+        $permissionId = $this->params()->fromPost('permission_id');
+
+        $this->permissionMapper->delete($permissionId);
+
+        $this->redirect()->toRoute($callbackRoute);
     }
 
 }
