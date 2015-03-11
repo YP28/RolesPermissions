@@ -23,38 +23,38 @@ There are several routes to manage Role and Permission objects, these are all po
 
 ##### Routes for Role
 ```
-/rolespermissions/roles/add
+Route: rolespermissions/roles/add
 POST - requires following parameters:
     callbackRoute - string, Zend Route to return to after handling the post
     role_name - string, the name of the new Role
 
-/rolespermissions/roles/udpate
+Route: rolespermissions/roles/udpate
 POST - requires following parameters:
     callbackRoute - string, Zend Route to return to after handling the post
     role_id - integer, the ID of the Role to be modified
     role_name - string, the new name of the Role
 
-/rolespermissions/roles/delete
+Route: rolespermissions/roles/delete
 POST - requires following parameters:
     callbackRoute - string, Zend Route to return to after handling the post
     role_id - integer, the ID of the Role to be deleted
 ```
 ##### Routes for Permission
 ```
-/rolespermissions/permissions/add
+Route: rolespermissions/permissions/add
 POST - requires following parameters:
     callbackRoute - string, Zend Route to return to after handling the post
     permission_subject - string, subject of the new Permission (example: users or posts)
     permission_type - string, the type of the new Permission (example: add or delete)
 
-/rolespermissions/permissions/udpate
+Route: rolespermissions/permissions/udpate
 POST - requires following parameters:
     callbackRoute - string, Zend Route to return to after handling the post
     permission_id - integer, the ID of the Permission to be modified
     permission_subject - string, subject of the Permission to be modified (example: users or posts)
     permission_type - string, the type of the Permission to be modified (example: add or delete)
 
-/rolespermissions/permissions/delete
+Route: rolespermissions/permissions/delete
 POST - requires following parameters:
     callbackRoute - string, Zend Route to return to after handling the post
     permission_id - integer, the ID of the Permission to be deleted
