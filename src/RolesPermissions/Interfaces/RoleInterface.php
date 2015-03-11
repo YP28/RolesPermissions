@@ -6,6 +6,11 @@ interface RoleInterface
 {
 
     /**
+     * @return integer
+     */
+    public function getId();
+
+    /**
      * @return string
      */
     public function getModelType();

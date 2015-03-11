@@ -1,7 +1,9 @@
 <?php namespace RolesPermissions\Services;
 
+use RolesPermissions\Interfaces\RoleInterface;
 use RolesPermissions\Mappers\RoleMapper;
 use RolesPermissions\Models\Permission;
+use RolesPermissions\Models\Role;
 
 class RoleService
 {
@@ -21,7 +23,7 @@ class RoleService
 
     /**
      * @param string $name
-     * @return \RolesPermissions\Models\Role
+     * @return Role
      */
     public function findByName($name)
     {
@@ -30,7 +32,7 @@ class RoleService
 
     /**
      * @param Permission $permission
-     * @return array|\RolesPermissions\Models\Role
+     * @return array|Role
      */
     public function findByPermission(Permission $permission)
     {
@@ -38,13 +40,12 @@ class RoleService
     }
 
     /**
-     * @param $roleable_type
-     * @param $roleable_id
-     * @return array|\RolesPermissions\Models\Role
+     * @param RoleInterface $roleable
+     * @return array|Role
      */
-    public function findByRoleable($roleable_type, $roleable_id)
+    public function findByRoleable(RoleInterface $roleable)
     {
-        return $this->roleMapper->findByRoleable($roleable_type, $roleable_id);
+        return $this->roleMapper->findByRoleable($roleable);
     }
 
 }
