@@ -1,4 +1,7 @@
 <?php return array(
+    /*
+     * Copy this configuration to /config/autoload/rolespermissions.config.php
+     */
     'service_manager' => array(
         'factories' => array(
             /*
