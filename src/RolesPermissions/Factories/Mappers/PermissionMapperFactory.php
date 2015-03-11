@@ -4,7 +4,7 @@ use RolesPermissions\Mappers\PermissionMapper;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class PermissionMapperFactory
+class PermissionMapperFactory implements FactoryInterface
 {
 
     /**]
