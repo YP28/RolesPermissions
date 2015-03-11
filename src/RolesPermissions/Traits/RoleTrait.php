@@ -16,7 +16,7 @@ trait RoleTrait
      */
     public function addRole(Role $role)
     {
-        // TODO: Implement addRole() method.
+        $this->roles[$role->getName()] = $role;
     }
 
     /**
@@ -25,7 +25,8 @@ trait RoleTrait
      */
     public function hasRole($role)
     {
-        // TODO: Implement hasRole() method.
+        if($this->roles[$role] !== null) return true;
+        return false;
     }
 
     /**
@@ -34,7 +35,9 @@ trait RoleTrait
      */
     public function hasPermission($permission)
     {
-        // TODO: Implement hasPermission() method.
+        foreach($this->roles as $role)
+            if($role->hasPermission($permission)) return true;
+        return false;
     }
 
 }
