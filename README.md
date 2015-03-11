@@ -73,6 +73,8 @@ The database table configuration is also located in the model files:
 ./RolesPermissions/src/Models/Permission.php
 ./RolesPermissions/src/Models/Role.php
 
+The basic queries to generate the database tables are in the database.sql file in the root of this project.
+
 #### roles
 ```
 id - integer, auto_increment, primary_key
