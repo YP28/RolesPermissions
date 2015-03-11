@@ -113,6 +113,9 @@ UNIQUE: (role_id, permission_id)
 ### Code modifications
 #### Roleable model
 ```php
+use RolesPermissions\Interfaces\RoleInterface;
+use RolesPermissions\Traits\RoleTrait;
+
 class User implements RoleInterface
 {
     use RoleTrait;
@@ -127,6 +130,9 @@ class User implements RoleInterface
 ```
 #### Roleable model mapper
 ```php
+use RolesPermissions\Interfaces\RoleMapperInterface;
+use RolesPermissions\Traits\RoleMapperTrait;
+
 class UserMapper implements RoleMapperInterface
 {
     use RoleMapperTrait;
