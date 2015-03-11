@@ -5,27 +5,27 @@ Roles and Permissions module for Zend Framework 2.
 ## Database structure
 The database table configuration is also located in the model files (\RolesPermissions\Models\Role, \RolesPermissions\Models\Permission)
 
-### roles
+#### roles
 ```
 id - integer, auto_increment, primary_key
 name - varchar(255)
 UNIQUE: name
 ```
-### roles_roleable
+#### roles_roleable
 ```
 id - integer, auto_increment, primary_key
 role_id - integer
 roleable_type - varchar(255)
 roleable_id - integer
 ```
-### permissions
+#### permissions
 ```
 id - integer, auto_increment, primary_key
 subject - varchar(255)
 type - varchar(10)
 UNIQUE: (subject, type)
 ```
-### roles_permissions
+#### roles_permissions
 ```
 id - integer, auto_increment, primary_key
 role_id - integer
