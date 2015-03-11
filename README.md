@@ -63,7 +63,6 @@ class UserMapper implements RoleServiceInterface
     {
         ...Getting user here...
         $user->setRoles($this->roleService->findByRoleable($user));
-        
         return $user;
     }
 }
@@ -74,12 +73,15 @@ class UserMapperFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $um = new UserMapper($serviceLocator->get('Zend\Db\Adapter\Adapter'));
+        $um = new UserMapper(...Initialize UserMapper instance here...);
         $um->setRoleService($serviceLocator->get('RoleService'));
         return $um;
     }
 }
 ```
 
-#### Module
-This module is created for Telefoonboek BV to simplify user permissions.
+## Bugs or problems
+If you're having problems implementing the module or found bugs in it, please open in issue in this repository so it will help others.
+
+### Module
+This module is created for Telefoonboek B.V. to simplify user permissions.
