@@ -55,14 +55,14 @@ class User implements RoleInterface
 ```
 #### Roleable model mapper
 ```php
-class UserMapper implements RoleServiceInterface
+class UserMapper implements RoleMapperInterface
 {
-    use RoleServiceTrait;
+    use RoleMapperTrait;
     
     public function mapperMethod()
     {
         ...Getting user here...
-        $user->setRoles($this->roleService->findByRoleable($user));
+        $user->setRoles($this->roleMapper->findByRoleable($user));
         return $user;
     }
 }
@@ -74,7 +74,7 @@ class UserMapperFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $um = new UserMapper(...Initialize UserMapper instance here...);
-        $um->setRoleService($serviceLocator->get('RoleService'));
+        $um->setRoleMapper($serviceLocator->get('RoleMapper'));
         return $um;
     }
 }
