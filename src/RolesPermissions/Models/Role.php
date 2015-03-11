@@ -101,13 +101,14 @@ class Role
     }
 
     /**
-     * @param string $permission
+     * @param array $permission
      * @return boolean
      */
-    public function hasPermission($permission)
+    public function hasPermission(array $permission)
     {
+        list($subject, $type) = each($permission);
         foreach($this->permissions as $p)
-            if($permission == $p->getName())
+            if($p->getSubject() == $subject && $p->getType() == $type)
                 return true;
         return false;
     }

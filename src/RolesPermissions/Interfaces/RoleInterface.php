@@ -28,9 +28,9 @@ interface RoleInterface
     public function hasRole($role);
 
     /**
-     * @param string $permission
+     * @param array $permission
      * @return boolean
      */
-    public function hasPermission($permission);
+    public function hasPermission(array $permission);
 
 }
