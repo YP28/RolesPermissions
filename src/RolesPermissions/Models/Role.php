@@ -12,12 +12,6 @@
  * name - varchar(255)
  * UNIQUE: name
  *
- * roles_permissions:
- * id - integer, auto_increment, primary_key
- * role_id - integer
- * permission_id - integer
- * UNIQUE: (role_id, permission_id)
- *
  * roles_roleable:
  * id - integer, auto_increment, primary_key
  * role_id - integer
@@ -35,12 +29,7 @@ class Role
     public static $table = 'roles';
 
     /**
-     * Database table for ManyToMany to Permission
-     * @var string
-     */
-    public static $tableToPermissions = 'roles_permissions';
-
-    /**
+     * Database table for polymorpic to Roleable
      * @var string
      */
     public static $tableToRoleable = 'roles_roleable';

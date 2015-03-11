@@ -6,6 +6,11 @@ interface RoleInterface
 {
 
     /**
+     * @return string
+     */
+    public function getModelType();
+
+    /**
      * @param Role $role
      * @return void
      */

@@ -11,6 +11,11 @@ trait RoleTrait
     protected $roles;
 
     /**
+     * @return string
+     */
+    public abstract function getModelType();
+
+    /**
      * @param Role $role
      * @return void
      */

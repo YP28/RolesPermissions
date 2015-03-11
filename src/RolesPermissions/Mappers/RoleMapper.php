@@ -27,7 +27,8 @@ class RoleMapper extends MySQLMapper
     public function findByName($name)
     {
         $sql = new Sql($this->dbAdapter);
-        $select = $sql->select(Role::$table)->where(array('name = ?' => $name));
+        $select = $sql->select(Role::$table)
+            ->where(array('name = ?' => $name));
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();

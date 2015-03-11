@@ -14,7 +14,8 @@ class PermissionMapper extends MySQLMapper
     public function findByName($name)
     {
         $sql = new Sql($this->dbAdapter);
-        $select = $sql->select(Permission::$table)->where(array('name = ?', $name));
+        $select = $sql->select(Permission::$table)
+            ->where(array('name = ?', $name));
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
@@ -39,8 +40,8 @@ class PermissionMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $select = $sql->select(array('p' => Permission::$table))
-            ->join(array('rp' => Role::$tableToPermissions), 'p.id = rp.permission_id', array())
-            ->join(array('r' => Role::$table), 'rp.role_id = r.id', array())
+            ->join(array('pr' => Permission::$tableToRoles), 'p.id = pr.permission_id', array())
+            ->join(array('r' => Role::$table), 'pr.role_id = r.id', array())
             ->where(array('r.id = ?' => $role->getId()));
 
         $stmt = $sql->prepareStatementForSqlObject($select);
