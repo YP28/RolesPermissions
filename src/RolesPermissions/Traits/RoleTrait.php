@@ -40,7 +40,7 @@ trait RoleTrait
      */
     public function hasRole($role)
     {
-        if($this->roles[$role] !== null) return true;
+        if(isset($this->roles[$role])) return true;
         return false;
     }
 
