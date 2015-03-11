@@ -2,7 +2,9 @@
 Roles and Permissions module for Zend Framework 2.
 
 
-## Database structure
+## Installation
+
+### Database structure
 The database table configuration is also located in the model files:
 ./RolesPermissions/src/Models/Permission.php
 ./RolesPermissions/src/Models/Role.php
@@ -34,6 +36,18 @@ id - integer, auto_increment, primary_key
 role_id - integer
 permission_id - integer
 UNIQUE: (role_id, permission_id)
+```
+
+### Prepare Roleable model
+```php
+class User implements RoleInterface
+{
+    use RoleTrait;
+    
+    private $id;
+    
+    public function getId() {}
+}
 ```
 
 #### Module
