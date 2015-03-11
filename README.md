@@ -2,6 +2,8 @@
 Roles and Permissions module for Zend Framework 2.
 
 ## Usage
+
+### Check permissions and roles
 ```php
 /**
  * Example: Check if $roleableInstance has permission to edit users
@@ -14,6 +16,48 @@ $roleableInstance->hasPermission(array('users' => 'edit'));
  * @returns boolean
  */
 $roleableInstance->hasRole('Administrator');
+```
+
+### Modify Role and Permission objects
+There are several routes to manage Role and Permission objects, these are all post routes and require a callbackRoute parameter to specify the route the application should return to.
+
+##### Routes for Role
+```
+/rolespermissions/roles/add
+POST - requires following parameters:
+callbackRoute - string, Zend Route to return to after handling the post
+role_name - string, the name of the new Role
+
+/rolespermissions/roles/udpate
+POST - requires following parameters:
+callbackRoute - string, Zend Route to return to after handling the post
+role_id - integer, the ID of the Role to be modified
+role_name - string, the new name of the Role
+
+/rolespermissions/roles/delete
+POST - requires following parameters:
+callbackRoute - string, Zend Route to return to after handling the post
+role_id - integer, the ID of the Role to be deleted
+```
+##### Routes for Permission
+```
+/rolespermissions/permissions/add
+POST - requires following parameters:
+callbackRoute - string, Zend Route to return to after handling the post
+permission_subject - string, subject of the new Permission (example: users or posts)
+permission_type - string, the type of the new Permission (example: add or delete)
+
+/rolespermissions/permissions/udpate
+POST - requires following parameters:
+callbackRoute - string, Zend Route to return to after handling the post
+permission_id - integer, the ID of the Permission to be modified
+permission_subject - string, subject of the Permission to be modified (example: users or posts)
+permission_type - string, the type of the Permission to be modified (example: add or delete)
+
+/rolespermissions/permissions/delete
+POST - requires following parameters:
+callbackRoute - string, Zend Route to return to after handling the post
+permission_id - integer, the ID of the Permission to be deleted
 ```
 
 ## Installation
@@ -99,9 +143,6 @@ class UserMapperFactory implements FactoryInterface
     }
 }
 ```
-
-### Management of Roles and Permissions
-There are some post-routes defined in the module to manage the basics of the roles and permissions. These however, are not fully implemented yet.
 
 ## Bugs or problems
 If you're having problems implementing the module or found bugs in it, please open in issue in this repository so it will help others.
