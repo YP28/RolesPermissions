@@ -62,10 +62,16 @@ POST - requires following parameters:
 
 ## Installation
 
-### Clone repository
+#### Clone repository
 Go to your Zend Framework 2 module folder in your console, and execute:
 ```
 git clone https://github.com/YP28/RolesPermissions
+```
+
+#### Composer
+Not available at this moment.
+```
+composer require yp28/roles-permissions dev-master
 ```
 
 ### Database structure
