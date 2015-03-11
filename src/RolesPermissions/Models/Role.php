@@ -14,9 +14,15 @@
  *
  * roles_permissions:
  * id - integer, auto_increment, primary_key
- * role_id - int
- * permission_id - int
+ * role_id - integer
+ * permission_id - integer
  * UNIQUE: (role_id, permission_id)
+ *
+ * roles_roleable:
+ * id - integer, auto_increment, primary_key
+ * role_id - integer
+ * roleable_type - varchar(255)
+ * roleable_id - integer
  */
 
 class Role
@@ -33,6 +39,11 @@ class Role
      * @var string
      */
     public static $tableToPermissions = 'roles_permissions';
+
+    /**
+     * @var string
+     */
+    public static $tableToRoleable = 'roles_roleable';
 
     /**
      * @var integer
