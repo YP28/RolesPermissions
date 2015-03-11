@@ -3,7 +3,9 @@ Roles and Permissions module for Zend Framework 2.
 
 
 ## Database structure
-The database table configuration is also located in the model files (\RolesPermissions\Models\Role, \RolesPermissions\Models\Permission)
+The database table configuration is also located in the model files:
+./RolesPermissions/src/Models/Permission.php
+./RolesPermissions/src/Models/Role.php
 
 #### roles
 ```
