@@ -22,7 +22,7 @@ $roleableInstance->hasRole('Administrator');
 There are several routes to manage Role and Permission objects, these are all post routes and require a callbackRoute parameter to specify the route the application should return to.
 
 ##### Routes for Role
-```
+```yaml
 /rolespermissions/roles/add
 POST - requires following parameters:
 callbackRoute - string, Zend Route to return to after handling the post
@@ -40,7 +40,7 @@ callbackRoute - string, Zend Route to return to after handling the post
 role_id - integer, the ID of the Role to be deleted
 ```
 ##### Routes for Permission
-```
+```yaml
 /rolespermissions/permissions/add
 POST - requires following parameters:
 callbackRoute - string, Zend Route to return to after handling the post
