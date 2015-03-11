@@ -86,6 +86,9 @@ class UserMapperFactory implements FactoryInterface
 }
 ```
 
+### Management of Roles and Permissions
+There are some post-routes defined in the module to manage the basics of the roles and permissions. These however, are not fully implemented yet.
+
 ## Bugs or problems
 If you're having problems implementing the module or found bugs in it, please open in issue in this repository so it will help others.
 
