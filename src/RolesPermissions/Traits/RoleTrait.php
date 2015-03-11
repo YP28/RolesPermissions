@@ -13,7 +13,10 @@ trait RoleTrait
     /**
      * @return string
      */
-    public abstract function getModelType();
+    public function getModelType()
+    {
+        return __CLASS__;
+    }
 
     /**
      * @param Role $role
@@ -22,6 +25,13 @@ trait RoleTrait
     public function addRole(Role $role)
     {
         $this->roles[$role->getName()] = $role;
+    }
+
+    public function setRoles(array $roles)
+    {
+        foreach($roles as $role)
+            if($role instanceof Role)
+                $this->addRole($role);
     }
 
     /**

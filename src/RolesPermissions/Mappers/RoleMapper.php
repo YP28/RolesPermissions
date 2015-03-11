@@ -84,7 +84,7 @@ class RoleMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $select = $sql->select(array('r' => Role::$table))
-            ->join(array('rr' => Role::$tableToRoleable), 'p.id = rr.role_id', array())
+            ->join(array('rr' => Role::$tableToRoleable), 'r.id = rr.role_id', array())
             ->where(array(
                 'rr.roleable_type = ?' => $roleable->getModelType(),
                 'rr.roleable_id =?' => $roleable->getId()
