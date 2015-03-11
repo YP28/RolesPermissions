@@ -19,6 +19,7 @@ id - integer, auto_increment, primary_key
 role_id - integer
 roleable_type - varchar(255)
 roleable_id - integer
+UNIQUE: (role_id, roleable_type, roleable_id)
 ```
 #### permissions
 ```

@@ -17,6 +17,7 @@
  * role_id - integer
  * roleable_type - varchar(255)
  * roleable_id - integer
+ * UNIQUE: (role_id, roleable_type, roleable_id)
  */
 
 class Role
