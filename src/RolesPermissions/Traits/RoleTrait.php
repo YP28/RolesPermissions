@@ -55,4 +55,9 @@ trait RoleTrait
         return false;
     }
 
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
 }

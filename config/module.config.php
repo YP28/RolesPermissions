@@ -6,12 +6,18 @@
              */
             'RoleMapper'                    => 'RolesPermissions\Factories\Mappers\RoleMapperFactory',
             'PermissionMapper'              => 'RolesPermissions\Factories\Mappers\PermissionMapperFactory',
+            'RelationshipMapper'            => 'RolesPermissions\Factories\Mappers\RelationshipMapperFactory',
+
+            /*
+             * Controllers (as a service)
+             */
+            'RelationshipController'        => 'RolesPermissions\Factories\Controllers\RelationshipControllerFactory',
         )
     ),
     'controllers' => array(
         'factories' => array(
             'RoleController'                => 'RolesPermissions\Factories\Controllers\RoleControllerFactory',
-            'PermissionController'          => 'RolesPermissions\Factories\Controllers\PermissionControllerFactory'
+            'PermissionController'          => 'RolesPermissions\Factories\Controllers\PermissionControllerFactory',
         )
     ),
     'router' => array(

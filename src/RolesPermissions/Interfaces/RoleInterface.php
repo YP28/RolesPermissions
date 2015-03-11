@@ -33,4 +33,9 @@ interface RoleInterface
      */
     public function hasPermission(array $permission);
 
+    /**
+     * @return array|Role
+     */
+    public function getRoles();
+
 }
