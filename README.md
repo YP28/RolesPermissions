@@ -38,7 +38,8 @@ permission_id - integer
 UNIQUE: (role_id, permission_id)
 ```
 
-### Prepare Roleable model
+### Code modifications
+#### Roleable model
 ```php
 class User implements RoleInterface
 {
@@ -46,7 +47,37 @@ class User implements RoleInterface
     
     private $id;
     
-    public function getId() {}
+    public function getId() 
+    {
+        return $this->id;
+    }
+}
+```
+#### Roleable model mapper
+```php
+class UserMapper implements RoleServiceInterface
+{
+    use RoleServiceTrait;
+    
+    public function mapperMethod()
+    {
+        ...Getting user here...
+        $user->setRoles($this->roleService->findByRoleable($user));
+        
+        return $user;
+    }
+}
+```
+#### Roleable model mapper factory
+```php
+class UserMapperFactory implements FactoryInterface
+{
+    public function createService(ServiceLocatorInterface $serviceLocator)
+    {
+        $um = new UserMapper($serviceLocator->get('Zend\Db\Adapter\Adapter'));
+        $um->setRoleService($serviceLocator->get('RoleService'));
+        return $um;
+    }
 }
 ```
 
