@@ -3,6 +3,7 @@
     "description": "Zend Framework 2 module to simplify user permissions.",
     "version": "0.1",
     "require": {
+        "php": ">=5.4.0",
         "zendframework/zendframework": "2.3.*"
     },
     "authors": [
