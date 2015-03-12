@@ -28,10 +28,11 @@ interface RoleInterface
     public function hasRole($role);
 
     /**
-     * @param array $permission
+     * @param $subject
+     * @param $type
      * @return boolean
      */
-    public function hasPermission(array $permission);
+    public function hasPermission($subject, $type);
 
     /**
      * @return array|Role
