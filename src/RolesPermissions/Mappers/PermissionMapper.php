@@ -79,9 +79,7 @@ class PermissionMapper extends MySQLMapper
             ));
 
         $stmt = $sql->prepareStatementForSqlObject($add);
-        $result = $stmt->execute();
-
-        return $result;
+        return $stmt->execute();
     }
 
     /**
@@ -100,9 +98,7 @@ class PermissionMapper extends MySQLMapper
         ));
 
         $stmt = $sql->prepareStatementForSqlObject($update);
-        $result = $stmt->execute();
-
-        return $result;
+        return $stmt->execute();
     }
 
     /**
@@ -116,9 +112,7 @@ class PermissionMapper extends MySQLMapper
             ->where(array('id' => $permission_id));
 
         $stmt = $sql->prepareStatementForSqlObject($update);
-        $result = $stmt->execute();
-
-        return $result;
+        return $stmt->execute();
     }
 
 }
