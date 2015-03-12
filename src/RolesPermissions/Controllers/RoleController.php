@@ -22,40 +22,61 @@ class RoleController extends AbstractActionController
 
     /**
      * Catches post request to add Role
+     *
+     * Returns to callbackRoute:
+     * \Zend\Db\Adapter\Driver\ResultInterface $result
+     * \Zend\Stdlib\Parameters $params
      */
     public function addAction()
     {
         $callbackRoute = $this->params()->fromPost('callbackRoute');
 
-        $this->roleMapper->add($this->params());
+        $result = $this->roleMapper->add($this->params());
 
-        $this->redirect()->toRoute($callbackRoute);
+        $this->redirect()->toRoute($callbackRoute, array(
+            'result' => $result,
+            'params' => $this->params()
+        ));
     }
 
     /**
      * Catches post request to edit Role
+     *
+     * Returns to callbackRoute:
+     * \Zend\Db\Adapter\Driver\ResultInterface $result
+     * \Zend\Stdlib\Parameters $params
      */
     public function updateAction()
     {
         $callbackRoute = $this->params()->fromPost('callbackRoute');
         $roleId = $this->params()->fromPost('role_id');
 
-        $this->roleMapper->update($roleId, $this->params());
+        $result = $this->roleMapper->update($roleId, $this->params());
 
-        $this->redirect()->toRoute($callbackRoute);
+        $this->redirect()->toRoute($callbackRoute, array(
+            'result' => $result,
+            'params' => $this->params()
+        ));
     }
 
     /**
      * Catches post request to delete Role
+     *
+     * Returns to callbackRoute:
+     * \Zend\Db\Adapter\Driver\ResultInterface $result
+     * \Zend\Stdlib\Parameters $params
      */
     public function deleteAction()
     {
         $callbackRoute = $this->params()->fromPost('callbackRoute');
         $roleId = $this->params()->fromPost('role_id');
 
-        $this->roleMapper->delete($roleId);
+        $result = $this->roleMapper->delete($roleId);
 
-        $this->redirect()->toRoute($callbackRoute);
+        $this->redirect()->toRoute($callbackRoute, array(
+            'result' => $result,
+            'params' => $this->params()
+        ));
     }
 
 }

@@ -21,40 +21,61 @@ class PermissionController extends AbstractActionController
 
     /**
      * Catches post request to add Permission
+     *
+     * Returns to callbackRoute:
+     * \Zend\Db\Adapter\Driver\ResultInterface $result
+     * \Zend\Stdlib\Parameters $params
      */
     public function addAction()
     {
         $callbackRoute = $this->params()->fromPost('callbackRoute');
 
-        $this->permissionMapper->add($this->params());
+        $result = $this->permissionMapper->add($this->params());
 
-        $this->redirect()->toRoute($callbackRoute);
+        $this->redirect()->toRoute($callbackRoute, array(
+            'result' => $result,
+            'params' => $this->params()
+        ));
     }
 
     /**
      * Catches post request to edit Permission
+     *
+     * Returns to callbackRoute:
+     * \Zend\Db\Adapter\Driver\ResultInterface $result
+     * \Zend\Stdlib\Parameters $params
      */
     public function updateAction()
     {
         $callbackRoute = $this->params()->fromPost('callbackRoute');
         $permissionId = $this->params()->fromPost('permission_id');
 
-        $this->permissionMapper->update($permissionId, $this->params());
+        $result = $this->permissionMapper->update($permissionId, $this->params());
 
-        $this->redirect()->toRoute($callbackRoute);
+        $this->redirect()->toRoute($callbackRoute, array(
+            'result' => $result,
+            'params' => $this->params()
+        ));
     }
 
     /**
      * Catches post request to delete Permission
+     *
+     * Returns to callbackRoute:
+     * \Zend\Db\Adapter\Driver\ResultInterface $result
+     * \Zend\Stdlib\Parameters $params
      */
     public function deleteAction()
     {
         $callbackRoute = $this->params()->fromPost('callbackRoute');
         $permissionId = $this->params()->fromPost('permission_id');
 
-        $this->permissionMapper->delete($permissionId);
+        $result = $this->permissionMapper->delete($permissionId);
 
-        $this->redirect()->toRoute($callbackRoute);
+        $this->redirect()->toRoute($callbackRoute, array(
+            'result' => $result,
+            'params' => $this->params()
+        ));
     }
 
 }
