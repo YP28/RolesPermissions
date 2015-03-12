@@ -137,7 +137,7 @@ class RoleMapper extends MySQLMapper
         $update = $sql->update(Role::$table)->set(array(
             'name' => $params->fromPost('role_name')
         ))->where(array(
-            'id' => $role_id
+            'id = ?' => $role_id
         ));
 
         $stmt = $sql->prepareStatementForSqlObject($update);
@@ -151,10 +151,51 @@ class RoleMapper extends MySQLMapper
     public function delete($role_id)
     {
         $sql = new Sql($this->dbAdapter);
-        $update = $sql->delete(Role::$table)
-            ->where(array('id' => $role_id));
+        $delete = $sql->delete(Role::$table)
+            ->where(array('id = ?' => $role_id));
 
-        $stmt = $sql->prepareStatementForSqlObject($update);
+        $stmt = $sql->prepareStatementForSqlObject($delete);
+        return $stmt->execute();
+    }
+
+    /**
+     * @param $role_id
+     * @param $permission_id
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function addPermission($role_id, $permission_id)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $insert = $sql->insert(Permission::$tableToRoles)
+            ->columns(array(
+                'role_id',
+                'permission_id'
+            ))
+            ->values(array(
+                $role_id,
+                $permission_id
+            ));
+
+        $stmt = $sql->prepareStatementForSqlObject($insert);
+        return $stmt->execute();
+
+    }
+
+    /**
+     * @param integer $role_id
+     * @param integer $permission_id
+     * @return \Zend\Db\Adapter\Driver\ResultInterface
+     */
+    public function deletePermission($role_id, $permission_id)
+    {
+        $sql = new Sql($this->dbAdapter);
+        $delete = $sql->delete(Permission::$tableToRoles)
+            ->where(array(
+                'role_id = ?' => $role_id,
+                'permission_id = ?' => $permission_id
+            ));
+
+        $stmt = $sql->prepareStatementForSqlObject($delete);
         return $stmt->execute();
     }
 
