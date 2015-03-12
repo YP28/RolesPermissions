@@ -7,12 +7,16 @@ Roles and Permissions module for Zend Framework 2.
 ```php
 /**
  * Example: Check if $roleableInstance has permission to edit users
+ * @param array
  * @returns boolean
+ *
+ * (this method needs work)
  */
 $roleableInstance->hasPermission(array('users' => 'edit'));
 
 /**
  * Example: Check if $roleableInstance has the role "Administrator"
+ * @param string
  * @returns boolean
  */
 $roleableInstance->hasRole('Administrator');
