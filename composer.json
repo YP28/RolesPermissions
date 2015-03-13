@@ -2,6 +2,7 @@
     "name": "yp28/roles-permissions",
     "description": "Zend Framework 2 module to simplify user permissions.",
     "version": "0.1",
+    "licence": "GPL-3.0",
     "require": {
         "php": ">=5.4.0",
         "zendframework/zendframework": "2.3.*"
