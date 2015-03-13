@@ -7,9 +7,8 @@ class ReachableTest extends PHPUnit_Framework_TestCase
 
     public function testResponseCode()
     {
-        $array = array();
-        for($i = 0; $i < 500000; $i++) $array[] = $i;
-        $this->assertEquals(500000, count($array));
+        $response = $this->call('GET', '/');
+        $this->assertEquals(200, $response->getCode());
     }
 
 }
