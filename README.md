@@ -8,13 +8,16 @@ Roles and Permissions module for Zend Framework 2.
 ```php
 /**
  * Example: Check if $roleableInstance has permission to edit users
- * @returns boolean
+ * @param string $subject (example: users, posts)
+ * @param string $type (example: read, edit, delete)
+ * @return boolean
  */
-$roleableInstance->hasPermission(array('users' => 'edit'));
+$roleableInstance->hasPermission('users', 'edit');
 
 /**
  * Example: Check if $roleableInstance has the role "Administrator"
- * @returns boolean
+ * @param string
+ * @return boolean
  */
 $roleableInstance->hasRole('Administrator');
 ```
@@ -161,6 +164,8 @@ class UserMapperFactory implements FactoryInterface
 
 ## Bugs or problems
 If you're having problems implementing the module or found bugs in it, please open in issue in this repository so it will help others.
+
+Oh yeah, any help in testing would be swell.
 
 ### Module
 This module is created for Telefoonboek B.V. to simplify user permissions.

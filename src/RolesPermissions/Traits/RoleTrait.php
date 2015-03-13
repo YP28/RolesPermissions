@@ -45,13 +45,14 @@ trait RoleTrait
     }
 
     /**
-     * @param array $permission
+     * @param string $subject
+     * @param string $type
      * @return boolean
      */
-    public function hasPermission(array $permission)
+    public function hasPermission($subject, $type)
     {
         foreach($this->roles as $role)
-            if($role->hasPermission($permission)) return true;
+            if($role->hasPermission($subject, $type)) return true;
         return false;
     }
 
