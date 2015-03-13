@@ -1,6 +1,8 @@
 # RolesPermissions
 Roles and Permissions module for Zend Framework 2.
 
+[![Build Status](https://travis-ci.org/YP28/RolesPermissions.svg?branch=master)](https://travis-ci.org/YP28/RolesPermissions)
+
 ## Usage
 
 ### Check permissions and roles
