@@ -11,3 +11,4 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
 }
 /* var $loader \Composer\Autoload\ClassLoader */
 $loader->add('RolesPermissionsTest\\', __DIR__);
+$loader->add('RolesPermissions\\', __DIR__ . '/../');
