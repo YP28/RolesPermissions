@@ -7,7 +7,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class PermissionMapperFactory implements FactoryInterface
 {
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  ServiceLocatorInterface $serviceLocator
      * @return PermissionMapper
      */
     public function createService(ServiceLocatorInterface $serviceLocator)

@@ -115,8 +115,7 @@ class RoleMapper extends MySQLMapper
         $result = $stmt->execute();
 
         $return = array();
-        foreach($result as $roleRow)
-        {
+        foreach ($result as $roleRow) {
             $tmpRole = new Role();
             $tmpRole->setId($roleRow['id']);
             $tmpRole->setName($roleRow['name']);

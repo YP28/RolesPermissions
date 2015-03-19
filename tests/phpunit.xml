@@ -1,14 +1,14 @@
-<phpunit bootstrap='./bootstrap.php' colors='true'>  
-    <testsuite name='ZF2 Module Test Suite'>  
-        <directory>.</directory>  
-    </testsuite>  
-    <filter>  
-        <whitelist>  
-            <directory suffix='.php'>../src/</directory>  
-        </whitelist>  
-    </filter>  
-    <listeners>  
-        <listener class="\Mockery\Adapter\Phpunit\TestListener"  
-            file="Mockery/Adapter/Phpunit/TestListener.php"></listener>  
-    </listeners>  
+<phpunit bootstrap='./bootstrap.php' colors='true'>
+    <testsuite name='ZF2 Module Test Suite'>
+        <directory>.</directory>
+    </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix='.php'>../src/</directory>
+        </whitelist>
+    </filter>
+    <listeners>
+        <listener class="\Mockery\Adapter\Phpunit\TestListener"
+            file="Mockery/Adapter/Phpunit/TestListener.php"></listener>
+    </listeners>
 </phpunit>
