@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/YP28/RolesPermissions.svg?branch=master)](https://travis-ci.org/YP28/RolesPermissions)
+[![Build Status](https://magnum.travis-ci.com/YP28/RolesPermissions.svg?token=rvC49957Ex38pMQhKp6m)](https://magnum.travis-ci.com/YP28/RolesPermissions)
 # RolesPermissions
 Roles and Permissions module for Zend Framework 2.
 

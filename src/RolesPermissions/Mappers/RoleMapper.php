@@ -108,6 +108,30 @@ class RoleMapper extends MySQLMapper
     }
 
     /**
+     * @return array|Role
+     */
+    public function findAll()
+    {
+        $sql = new Sql($this->dbAdapter);
+        $select = $sql->select(Role::$table);
+        $stmt = $sql->prepareStatementForSqlObject($select);
+        $result = $stmt->execute();
+
+        $return = array();
+        foreach($result as $roleRow)
+        {
+            $tmpRole = new Role();
+            $tmpRole->setId($roleRow['id']);
+            $tmpRole->setName($roleRow['name']);
+            $tmpRole->setPermissions($this->permissionMapper->findByRole($tmpRole));
+
+            $return[] = $tmpRole;
+        }
+
+        return $return;
+    }
+
+    /**
      * @param $params
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */

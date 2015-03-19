@@ -9,4 +9,5 @@ interface RoleMapperInterface
      * @return void
      */
     public function setRoleMapper(RoleMapper $roleMapper);
+
 }
