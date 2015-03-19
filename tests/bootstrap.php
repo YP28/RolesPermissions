@@ -1,11 +1,10 @@
 <?php  
-putenv('ZF2_PATH=' . __DIR__ . '/../../../vendor/ZF2/library');  
-include_once __DIR__ . '/../../../init_autoloader.php';  
+putenv('ZF2_PATH=' . __DIR__ . '/../vendor/ZF2/library');  
+include_once __DIR__ . '/../init_autoloader.php';  
 set_include_path(implode(PATH_SEPARATOR, array(  
     '.',  
     __DIR__ . '/../src',  
-    __DIR__ . '/../../SomeRequiredModule/src',  
-    __DIR__ . '/../../../vendor',  
+    __DIR__ . '/../vendor',  
     get_include_path(),  
 )));  
 spl_autoload_register(function($class) {  
