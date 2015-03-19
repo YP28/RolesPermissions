@@ -4,7 +4,6 @@ use Zend\Db\Adapter\AdapterInterface;
 
 abstract class MySQLMapper
 {
-
     /**
      * @var AdapterInterface
      */
@@ -17,5 +16,4 @@ abstract class MySQLMapper
     {
         $this->dbAdapter = $dbAdapter;
     }
-
 }

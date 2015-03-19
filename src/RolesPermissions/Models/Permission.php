@@ -22,7 +22,6 @@
 
 class Permission
 {
-
     /**
      * Database table for Permission
      * @var string
@@ -97,5 +96,4 @@ class Permission
     {
         $this->type = $type;
     }
-
 }

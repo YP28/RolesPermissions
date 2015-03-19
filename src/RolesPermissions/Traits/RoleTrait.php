@@ -4,7 +4,6 @@ use RolesPermissions\Models\Role;
 
 trait RoleTrait
 {
-
     /**
      * @var array|Role
      */
@@ -19,7 +18,7 @@ trait RoleTrait
     }
 
     /**
-     * @param Role $role
+     * @param  Role $role
      * @return void
      */
     public function addRole(Role $role)
@@ -29,30 +28,39 @@ trait RoleTrait
 
     public function setRoles(array $roles)
     {
-        foreach($roles as $role)
-            if($role instanceof Role)
+        foreach ($roles as $role) {
+            if ($role instanceof Role) {
                 $this->addRole($role);
+            }
+        }
     }
 
     /**
-     * @param string $role
+     * @param  string  $role
      * @return boolean
      */
     public function hasRole($role)
     {
-        if(isset($this->roles[$role])) return true;
+        if (isset($this->roles[$role])) {
+            return true;
+        }
+
         return false;
     }
 
     /**
-     * @param string $subject
-     * @param string $type
+     * @param  string  $subject
+     * @param  string  $type
      * @return boolean
      */
     public function hasPermission($subject, $type)
     {
-        foreach($this->roles as $role)
-            if($role->hasPermission($subject, $type)) return true;
+        foreach ($this->roles as $role) {
+            if ($role->hasPermission($subject, $type)) {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -60,5 +68,4 @@ trait RoleTrait
     {
         return $this->roles;
     }
-
 }

@@ -4,7 +4,6 @@ use RolesPermissions\Models\Role;
 
 interface RoleInterface
 {
-
     /**
      * @return integer
      */
@@ -16,13 +15,13 @@ interface RoleInterface
     public function getModelType();
 
     /**
-     * @param Role $role
+     * @param  Role $role
      * @return void
      */
     public function addRole(Role $role);
 
     /**
-     * @param string $role
+     * @param  string  $role
      * @return boolean
      */
     public function hasRole($role);
@@ -38,5 +37,4 @@ interface RoleInterface
      * @return array|Role
      */
     public function getRoles();
-
 }

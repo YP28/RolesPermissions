@@ -6,8 +6,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class RelationshipMapperFactory implements FactoryInterface
 {
-
-    /**]
+    /**
      * @param ServiceLocatorInterface $serviceLocator
      * @return RelationshipMapper
      */
@@ -17,5 +16,4 @@ class RelationshipMapperFactory implements FactoryInterface
             $serviceLocator->get('Zend\Db\Adapter\Adapter')
         );
     }
-
 }

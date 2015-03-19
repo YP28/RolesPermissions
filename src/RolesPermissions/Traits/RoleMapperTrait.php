@@ -4,7 +4,6 @@ use RolesPermissions\Mappers\RoleMapper;
 
 trait RoleMapperTrait
 {
-
     /**
      * @var RoleMapper
      */
@@ -17,5 +16,4 @@ trait RoleMapperTrait
     {
         $this->roleMapper = $roleMapper;
     }
-
 }
