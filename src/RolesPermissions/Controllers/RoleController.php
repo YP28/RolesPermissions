@@ -2,11 +2,9 @@
 
 use RolesPermissions\Mappers\RoleMapper;
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 
 class RoleController extends AbstractActionController
 {
-
     /**
      * @var RoleMapper
      */
@@ -35,7 +33,7 @@ class RoleController extends AbstractActionController
 
         $this->redirect()->toRoute($callbackRoute, array(
             'result' => $result,
-            'params' => $this->params()
+            'params' => $this->params(),
         ));
     }
 
@@ -55,7 +53,7 @@ class RoleController extends AbstractActionController
 
         $this->redirect()->toRoute($callbackRoute, array(
             'result' => $result,
-            'params' => $this->params()
+            'params' => $this->params(),
         ));
     }
 
@@ -75,8 +73,7 @@ class RoleController extends AbstractActionController
 
         $this->redirect()->toRoute($callbackRoute, array(
             'result' => $result,
-            'params' => $this->params()
+            'params' => $this->params(),
         ));
     }
-
 }

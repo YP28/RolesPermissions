@@ -6,9 +6,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class RelationshipControllerFactory implements FactoryInterface
 {
-
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  ServiceLocatorInterface $serviceLocator
      * @return RelationshipController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
@@ -17,5 +16,4 @@ class RelationshipControllerFactory implements FactoryInterface
             $serviceLocator->get('RelationshipMapper')
         );
     }
-
 }

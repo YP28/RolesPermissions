@@ -6,8 +6,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class PermissionMapperFactory implements FactoryInterface
 {
-
-    /**]
+    /**
      * @param ServiceLocatorInterface $serviceLocator
      * @return PermissionMapper
      */
@@ -17,5 +16,4 @@ class PermissionMapperFactory implements FactoryInterface
             $serviceLocator->get('Zend\Db\Adapter\Adapter')
         );
     }
-
 }

@@ -6,9 +6,8 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 
 class RoleControllerFactory implements FactoryInterface
 {
-
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @param  ServiceLocatorInterface $serviceLocator
      * @return RoleController
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
@@ -17,5 +16,4 @@ class RoleControllerFactory implements FactoryInterface
             $serviceLocator->getServiceLocator()->get('RoleMapper')
         );
     }
-
 }

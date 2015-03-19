@@ -6,9 +6,8 @@ use Zend\Db\Sql\Sql;
 
 class PermissionMapper extends MySQLMapper
 {
-
     /**
-     * @param string $name
+     * @param  string     $name
      * @return Permission
      */
     public function findByName($name)
@@ -20,8 +19,7 @@ class PermissionMapper extends MySQLMapper
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
-        if(($permissionRow = $result->current()))
-        {
+        if (($permissionRow = $result->current())) {
             $permission = new Permission();
             $permission->setId($permissionRow['id']);
             $permission->setSubject($permissionRow['subject']);
@@ -29,11 +27,12 @@ class PermissionMapper extends MySQLMapper
 
             return $permission;
         }
-        return null;
+
+        return;
     }
 
     /**
-     * @param Role $role
+     * @param  Role             $role
      * @return array|Permission
      */
     public function findByRole(Role $role)
@@ -48,8 +47,7 @@ class PermissionMapper extends MySQLMapper
         $result = $stmt->execute();
 
         $return = array();
-        foreach($result as $permissionRow)
-        {
+        foreach ($result as $permissionRow) {
             $tmpPermission = new Permission();
             $tmpPermission->setId($permissionRow['id']);
             $tmpPermission->setSubject($permissionRow['subject']);
@@ -79,6 +77,7 @@ class PermissionMapper extends MySQLMapper
             ));
 
         $stmt = $sql->prepareStatementForSqlObject($add);
+
         return $stmt->execute();
     }
 
@@ -92,12 +91,13 @@ class PermissionMapper extends MySQLMapper
         $sql = new Sql($this->dbAdapter);
         $update = $sql->update(Permission::$table)->set(array(
             'subject' => $params->fromPost('permission_subject'),
-            'type' => $params->fromPost('permission_type')
+            'type' => $params->fromPost('permission_type'),
         ))->where(array(
-            'id' => $permission_id
+            'id' => $permission_id,
         ));
 
         $stmt = $sql->prepareStatementForSqlObject($update);
+
         return $stmt->execute();
     }
 
@@ -112,7 +112,7 @@ class PermissionMapper extends MySQLMapper
             ->where(array('id' => $permission_id));
 
         $stmt = $sql->prepareStatementForSqlObject($update);
+
         return $stmt->execute();
     }
-
 }

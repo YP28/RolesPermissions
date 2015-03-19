@@ -5,7 +5,6 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class PermissionController extends AbstractActionController
 {
-
     /**
      * @var PermissionMapper
      */
@@ -34,7 +33,7 @@ class PermissionController extends AbstractActionController
 
         $this->redirect()->toRoute($callbackRoute, array(
             'result' => $result,
-            'params' => $this->params()
+            'params' => $this->params(),
         ));
     }
 
@@ -54,7 +53,7 @@ class PermissionController extends AbstractActionController
 
         $this->redirect()->toRoute($callbackRoute, array(
             'result' => $result,
-            'params' => $this->params()
+            'params' => $this->params(),
         ));
     }
 
@@ -74,8 +73,7 @@ class PermissionController extends AbstractActionController
 
         $this->redirect()->toRoute($callbackRoute, array(
             'result' => $result,
-            'params' => $this->params()
+            'params' => $this->params(),
         ));
     }
-
 }

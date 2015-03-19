@@ -22,7 +22,6 @@
 
 class Role
 {
-
     /**
      * Database table for Role
      * @var string
@@ -95,21 +94,26 @@ class Role
      */
     public function setPermissions(array $permissions)
     {
-        foreach($permissions as $permission)
-            if($permission instanceof Permission)
+        foreach ($permissions as $permission) {
+            if ($permission instanceof Permission) {
                 $this->permissions[] = $permission;
+            }
+        }
     }
 
     /**
-     * @param string $subject
-     * @param string $type
+     * @param  string  $subject
+     * @param  string  $type
      * @return boolean
      */
     public function hasPermission($subject, $type)
     {
-        foreach($this->permissions as $p)
-            if($p->getSubject() == $subject && $p->getType() == $type)
+        foreach ($this->permissions as $p) {
+            if ($p->getSubject() == $subject && $p->getType() == $type) {
                 return true;
+            }
+        }
+
         return false;
     }
 
@@ -120,5 +124,4 @@ class Role
     {
         return $this->getName();
     }
-
 }
