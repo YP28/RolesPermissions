@@ -14,5 +14,3 @@ spl_autoload_register(function($class) {
     }  
     include_once $realpath;  
 });  
-$loader = new \Mockery\Loader;  
-$loader->register(); 
