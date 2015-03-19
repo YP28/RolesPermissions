@@ -16,5 +16,7 @@ script:
 after_script:
   - ./vendor/bin/php-cs-fixer fix ./src/
   - ./vendor/bin/php-cs-fixer fix ./tests/
+  - git config --global user.name "Yordi Pauptit @ Travis CI"
+  - git config --global user.email "yordipauptit@hotmail.com"
   - git commit -a -m "automatic code style fix in travis"
   - git push
