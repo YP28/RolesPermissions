@@ -7,7 +7,9 @@ class PermissionControllerTest extends PHPUnit_Framework_TestCase
 
     public function testTest()
     {
-        $this->assertTrue(true);
+        $mock = \Mockery::mock('\RolesPermissions\Mappers\PermissionMapper');
+        $permissionController = new \RolesPermissions\Controllers\PermissionController($mock);
+        $this->assertInstanceOf('\RolesPermissions\Controllers\PermissionController', $permissionController);
     }
 
 }
