@@ -13,5 +13,5 @@ script:
   - ./vendor/bin/phpunit
   
 after_script:
-  - ./vendor/bin/php-cs-fixer fix ./src/
-  - ./vendor/bin/php-cs-fixer fix ./tests/
+  - ./vendor/bin/php-cs-fixer fix ./src/ --diff --dry-run
+  - ./vendor/bin/php-cs-fixer fix ./tests/ --diff --dry-run
