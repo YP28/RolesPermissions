@@ -4,14 +4,15 @@ php:
   - 5.4
   - 5.5
   - hhvm
+  - 7
 
 before_script:
   - composer self-update
-  - composer update --prefer-source --dev
+  - composer update
 
 script:
   - ./vendor/bin/phpunit
   
 after_script:
-  - ./vendor/bin/php-cs-fixer fix ./src/ --diff --dry-run
-  - ./vendor/bin/php-cs-fixer fix ./tests/ --diff --dry-run
+  - ./vendor/bin/php-cs-fixer fix ./src/
+  - ./vendor/bin/php-cs-fixer fix ./tests/
