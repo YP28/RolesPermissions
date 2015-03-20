@@ -7,7 +7,7 @@ trait RoleTrait
     /**
      * @var array|Role
      */
-    protected $roles;
+    protected $roles = array();
 
     /**
      * @return string
@@ -56,11 +56,9 @@ trait RoleTrait
     public function hasPermission($subject, $type)
     {
         foreach ($this->roles as $role) {
-            if ($role->hasPermission($subject, $type)) {
+            if ($role->hasPermission($subject, $type))
                 return true;
-            }
         }
-
         return false;
     }
 
