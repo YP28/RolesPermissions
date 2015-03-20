@@ -3,8 +3,7 @@
 use PHPUnit_Framework_TestCase;
 use Mockery as m;
 
-use Zend\ServiceManager\ServiceLocatorAwareTrait;
-use Zend\ServiceManager\ServiceLocatorAwareInterface;
+use RolesPermissions\Factories\Controllers\PermissionControllerFactory;
 
 class PermissionControllerTest extends PHPUnit_Framework_TestCase implements ServiceLocatorAwareInterface
 {
@@ -20,7 +19,9 @@ class PermissionControllerTest extends PHPUnit_Framework_TestCase implements Ser
 
         $this->assertInstanceOf('RolesPermissions\Mappers\PermissionMapper', $reflectionProperty->getValue($permissionController));*/
 
-        $permissionController = $this->getServiceLocator()->get('PermissionController');
+        $sl = m::mock('ServiceLocatorInterface');
+        $permissionControllerFactory = new PermissionControllerFactory();
+        $permissionController = $permissionControllerFactory->createService($sl);
         $this->assertInstanceOf('RolesPermissions\Controllers\PermissionController', $permissionController);
     }
 }
