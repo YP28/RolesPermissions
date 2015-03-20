@@ -5,7 +5,7 @@ use Mockery as m;
 
 use RolesPermissions\Factories\Controllers\PermissionControllerFactory;
 
-class PermissionControllerTest extends PHPUnit_Framework_TestCase implements ServiceLocatorAwareInterface
+class PermissionControllerTest extends PHPUnit_Framework_TestCase
 {
     use ServiceLocatorAwareTrait;
 
