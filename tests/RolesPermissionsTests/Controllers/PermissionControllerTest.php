@@ -7,8 +7,6 @@ use RolesPermissions\Factories\Controllers\PermissionControllerFactory;
 
 class PermissionControllerTest extends PHPUnit_Framework_TestCase
 {
-    use ServiceLocatorAwareTrait;
-
     public function testTest()
     {
         /*$mock = m::mock('\RolesPermissions\Mappers\PermissionMapper');
