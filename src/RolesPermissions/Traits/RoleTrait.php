@@ -28,11 +28,9 @@ trait RoleTrait
 
     public function setRoles(array $roles)
     {
-        foreach ($roles as $role) {
-            if ($role instanceof Role) {
+        foreach ($roles as $role)
+            if ($role instanceof Role)
                 $this->addRole($role);
-            }
-        }
     }
 
     /**
@@ -41,11 +39,7 @@ trait RoleTrait
      */
     public function hasRole($role)
     {
-        if (isset($this->roles[$role])) {
-            return true;
-        }
-
-        return false;
+        return (isset($this->roles[$role]));
     }
 
     /**
@@ -55,10 +49,9 @@ trait RoleTrait
      */
     public function hasPermission($subject, $type)
     {
-        foreach ($this->roles as $role) {
+        foreach ($this->roles as $role)
             if ($role->hasPermission($subject, $type))
                 return true;
-        }
         return false;
     }
 

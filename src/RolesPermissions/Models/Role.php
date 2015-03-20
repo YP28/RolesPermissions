@@ -94,11 +94,9 @@ class Role
      */
     public function setPermissions(array $permissions)
     {
-        foreach ($permissions as $permission) {
-            if ($permission instanceof Permission) {
+        foreach ($permissions as $permission)
+            if ($permission instanceof Permission)
                 $this->permissions[] = $permission;
-            }
-        }
     }
 
     /**
@@ -108,12 +106,9 @@ class Role
      */
     public function hasPermission($subject, $type)
     {
-        foreach ($this->permissions as $p) {
-            if ($p->getSubject() == $subject && $p->getType() == $type) {
+        foreach ($this->permissions as $p)
+            if ($p->getSubject() == $subject && $p->getType() == $type)
                 return true;
-            }
-        }
-
         return false;
     }
 
