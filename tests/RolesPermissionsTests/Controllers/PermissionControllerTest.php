@@ -10,6 +10,10 @@ class PermissionControllerTest extends PHPUnit_Framework_TestCase
     {
         $mock = m::mock('\RolesPermissions\Mappers\PermissionMapper');
         $permissionController = new PermissionController($mock);
-        $this->assertInstanceOf('\RolesPermissions\Controllers\PermissionController', $permissionController);
+
+        $reflectionProperty = new \ReflectionProperty($permissionController, 'permissionMapper');
+        $reflectionProperty->setAccessible(true);
+
+        $this->assertInstanceOf('RolesPermissions\Mappers\PermissionMapper', $reflectionProperty->getValue($permissionController));
     }
 }
