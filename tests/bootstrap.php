@@ -1,13 +1,16 @@
 <?php
-
-if (file_exists(__DIR__.'/../vendor/autoload.php')) {
-    $loader = include __DIR__.'/../vendor/autoload.php';
-} elseif (file_exists(__DIR__.'/../../../autoload.php')) {
-    $loader = include __DIR__.'/../../../autoload.php';
-} elseif (file_exists(__DIR__.'/../../../vendor/autoload.php')) {
-    $loader = include __DIR__.'/../../../vendor/autoload.php';
-} else {
-    throw new RuntimeException('vendor/autoload.php could not be found. Did you run `php composer.phar install`?');
-}
-/* var $loader \Composer\Autoload\ClassLoader */
-$loader->add('RolesPermissionsTests\\', __DIR__);
+putenv('ZF2_PATH='.__DIR__.'/../vendor/ZF2/library');
+include_once __DIR__.'/../init_autoloader.php';
+set_include_path(implode(PATH_SEPARATOR, array(
+    '.',
+    __DIR__.'/../src',
+    __DIR__.'/../vendor',
+    get_include_path(),
+)));
+spl_autoload_register(function ($class) {
+    $file = str_replace(array('\\', '_'), DIRECTORY_SEPARATOR, $class).'.php';
+    if (false === ($realpath = stream_resolve_include_path($file))) {
+        return false;
+    }
+    include_once $realpath;
+});
