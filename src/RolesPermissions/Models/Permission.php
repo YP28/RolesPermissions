@@ -1,8 +1,7 @@
 <?php namespace RolesPermissions\Models;
 
 /**
- * Class Permission
- * @package RolesPermissions\Models
+ * Class Permission.
  *
  *
  * Database tables
@@ -19,17 +18,18 @@
  * permission_id - integer
  * UNIQUE: (role_id, permission_id)
  */
-
 class Permission
 {
     /**
-     * Database table for Permission
+     * Database table for Permission.
+     *
      * @var string
      */
     public static $table = 'permissions';
 
     /**
-     * Database table for ManyToMany to Role
+     * Database table for ManyToMany to Role.
+     *
      * @var string
      */
     public static $tableToRoles = 'roles_permissions';

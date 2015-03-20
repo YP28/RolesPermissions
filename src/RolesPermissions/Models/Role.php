@@ -1,8 +1,7 @@
 <?php namespace RolesPermissions\Models;
 
 /**
- * Class Role
- * @package RolesPermissions\Models
+ * Class Role.
  *
  *
  * Database tables
@@ -19,17 +18,18 @@
  * roleable_id - integer
  * UNIQUE: (role_id, roleable_type, roleable_id)
  */
-
 class Role
 {
     /**
-     * Database table for Role
+     * Database table for Role.
+     *
      * @var string
      */
     public static $table = 'roles';
 
     /**
-     * Database table for polymorpic to Roleable
+     * Database table for polymorpic to Roleable.
+     *
      * @var string
      */
     public static $tableToRoleable = 'roles_roleable';
@@ -94,21 +94,27 @@ class Role
      */
     public function setPermissions(array $permissions)
     {
-        foreach ($permissions as $permission)
-            if ($permission instanceof Permission)
+        foreach ($permissions as $permission) {
+            if ($permission instanceof Permission) {
                 $this->permissions[] = $permission;
+            }
+        }
     }
 
     /**
-     * @param  string  $subject
-     * @param  string  $type
+     * @param string $subject
+     * @param string $type
+     *
      * @return boolean
      */
     public function hasPermission($subject, $type)
     {
-        foreach ($this->permissions as $p)
-            if ($p->getSubject() == $subject && $p->getType() == $type)
+        foreach ($this->permissions as $p) {
+            if ($p->getSubject() == $subject && $p->getType() == $type) {
                 return true;
+            }
+        }
+
         return false;
     }
 

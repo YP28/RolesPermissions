@@ -18,8 +18,7 @@ trait RoleTrait
     }
 
     /**
-     * @param  Role $role
-     * @return void
+     * @param Role $role
      */
     public function addRole(Role $role)
     {
@@ -28,13 +27,16 @@ trait RoleTrait
 
     public function setRoles(array $roles)
     {
-        foreach ($roles as $role)
-            if ($role instanceof Role)
+        foreach ($roles as $role) {
+            if ($role instanceof Role) {
                 $this->addRole($role);
+            }
+        }
     }
 
     /**
-     * @param  string  $role
+     * @param string $role
+     *
      * @return boolean
      */
     public function hasRole($role)
@@ -43,15 +45,19 @@ trait RoleTrait
     }
 
     /**
-     * @param  string  $subject
-     * @param  string  $type
+     * @param string $subject
+     * @param string $type
+     *
      * @return boolean
      */
     public function hasPermission($subject, $type)
     {
-        foreach ($this->roles as $role)
-            if ($role->hasPermission($subject, $type))
+        foreach ($this->roles as $role) {
+            if ($role->hasPermission($subject, $type)) {
                 return true;
+            }
+        }
+
         return false;
     }
 

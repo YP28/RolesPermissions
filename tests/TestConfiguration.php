@@ -6,8 +6,6 @@
         'config_glob_paths' => array(
             __DIR__.'/testing.config.php',
         ),
-        'module_paths' => array(
-            'RolesPermissions' => __DIR__.'/../../RolesPermissions/',
-        ),
+        'module_paths' => array(),
     ),
 );

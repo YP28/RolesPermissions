@@ -19,7 +19,7 @@ class RoleController extends AbstractActionController
     }
 
     /**
-     * Catches post request to add Role
+     * Catches post request to add Role.
      *
      * Returns to callbackRoute:
      * \Zend\Db\Adapter\Driver\ResultInterface $result
@@ -38,7 +38,7 @@ class RoleController extends AbstractActionController
     }
 
     /**
-     * Catches post request to edit Role
+     * Catches post request to edit Role.
      *
      * Returns to callbackRoute:
      * \Zend\Db\Adapter\Driver\ResultInterface $result
@@ -58,7 +58,7 @@ class RoleController extends AbstractActionController
     }
 
     /**
-     * Catches post request to delete Role
+     * Catches post request to delete Role.
      *
      * Returns to callbackRoute:
      * \Zend\Db\Adapter\Driver\ResultInterface $result

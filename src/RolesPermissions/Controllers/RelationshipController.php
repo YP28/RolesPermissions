@@ -20,8 +20,9 @@ class RelationshipController extends AbstractActionController
     }
 
     /**
-     * @param  RoleInterface                           $roleable
-     * @param  Role                                    $role
+     * @param RoleInterface $roleable
+     * @param Role          $role
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function addRoleToRoleable(RoleInterface $roleable, Role $role)
@@ -30,8 +31,9 @@ class RelationshipController extends AbstractActionController
     }
 
     /**
-     * @param  RoleInterface                           $roleable
-     * @param  Role                                    $role
+     * @param RoleInterface $roleable
+     * @param Role          $role
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function deleteRoleFromRoleable(RoleInterface $roleable, Role $role)
