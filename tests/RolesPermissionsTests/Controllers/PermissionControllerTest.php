@@ -19,7 +19,7 @@ class PermissionControllerTest extends PHPUnit_Framework_TestCase implements Ser
 
         $this->assertInstanceOf('RolesPermissions\Mappers\PermissionMapper', $reflectionProperty->getValue($permissionController));*/
 
-        $sl = m::mock('ServiceLocatorInterface');
+        $sl = m::mock('\Zend\ServiceManager\ServiceLocatorInterface');
         $permissionControllerFactory = new PermissionControllerFactory();
         $permissionController = $permissionControllerFactory->createService($sl);
         $this->assertInstanceOf('RolesPermissions\Controllers\PermissionController', $permissionController);
