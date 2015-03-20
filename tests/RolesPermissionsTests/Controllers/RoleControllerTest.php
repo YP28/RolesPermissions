@@ -13,6 +13,6 @@ class RoleControllerTest extends PHPUnit_Framework_TestCase
 
         $reflectionProperty = new \ReflectionProperty($roleController, 'roleMapper');
 
-        $this->assertInstanceOf('RolesPermissions\Mappers\RoleMapper', $reflectionProperty);
+        $this->assertInstanceOf('RolesPermissions\Mappers\RoleMapper', $reflectionProperty->getValue());
     }
 }
