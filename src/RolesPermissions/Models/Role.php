@@ -47,7 +47,7 @@ class Role
     /**
      * @var array|Permission
      */
-    private $permissions;
+    private $permissions = array();
 
     /**
      * @return int
