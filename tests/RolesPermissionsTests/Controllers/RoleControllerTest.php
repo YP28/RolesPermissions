@@ -2,12 +2,13 @@
 
 use PHPUnit_Framework_TestCase;
 use RolesPermissions\Controllers\RoleController;
+use Mockery as m;
 
 class RoleControllerTest extends PHPUnit_Framework_TestCase
 {
     public function testConstructorDependencyInjection()
     {
-        $roleMapperStub = $this->getMockBuilder('RoleMapper')->getMock();
+        $roleMapperStub = m::mock('\RolesPermissions\Mappers\RoleMapper');
         $roleController = new RoleController($roleMapperStub);
 
         $reflectionProperty = new \ReflectionProperty($roleController, 'roleMapper');
