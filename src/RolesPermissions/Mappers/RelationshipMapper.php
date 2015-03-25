@@ -7,8 +7,9 @@ use Zend\Db\Sql\Sql;
 class RelationshipMapper extends MySQLMapper
 {
     /**
-     * @param  RoleInterface                           $roleable
-     * @param  Role                                    $role
+     * @param RoleInterface $roleable
+     * @param Role          $role
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function addRoleToRoleable(RoleInterface $roleable, Role $role)
@@ -32,8 +33,9 @@ class RelationshipMapper extends MySQLMapper
     }
 
     /**
-     * @param  RoleInterface                           $roleable
-     * @param  Role                                    $role
+     * @param RoleInterface $roleable
+     * @param Role          $role
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function deleteRoleFromRoleable(RoleInterface $roleable, Role $role)

@@ -7,7 +7,7 @@ trait RoleTrait
     /**
      * @var array|Role
      */
-    protected $roles;
+    protected $roles = array();
 
     /**
      * @return string
@@ -18,8 +18,7 @@ trait RoleTrait
     }
 
     /**
-     * @param  Role $role
-     * @return void
+     * @param Role $role
      */
     public function addRole(Role $role)
     {
@@ -36,21 +35,19 @@ trait RoleTrait
     }
 
     /**
-     * @param  string  $role
+     * @param string $role
+     *
      * @return boolean
      */
     public function hasRole($role)
     {
-        if (isset($this->roles[$role])) {
-            return true;
-        }
-
-        return false;
+        return (isset($this->roles[$role]));
     }
 
     /**
-     * @param  string  $subject
-     * @param  string  $type
+     * @param string $subject
+     * @param string $type
+     *
      * @return boolean
      */
     public function hasPermission($subject, $type)

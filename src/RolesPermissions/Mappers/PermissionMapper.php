@@ -7,7 +7,8 @@ use Zend\Db\Sql\Sql;
 class PermissionMapper extends MySQLMapper
 {
     /**
-     * @param  string     $name
+     * @param string $name
+     *
      * @return Permission
      */
     public function findByName($name)
@@ -32,7 +33,8 @@ class PermissionMapper extends MySQLMapper
     }
 
     /**
-     * @param  Role             $role
+     * @param Role $role
+     *
      * @return array|Permission
      */
     public function findByRole(Role $role)
@@ -61,6 +63,7 @@ class PermissionMapper extends MySQLMapper
 
     /**
      * @param $params
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function add($params)
@@ -84,6 +87,7 @@ class PermissionMapper extends MySQLMapper
     /**
      * @param $permission_id
      * @param $params
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function update($permission_id, $params)
@@ -103,6 +107,7 @@ class PermissionMapper extends MySQLMapper
 
     /**
      * @param $permission_id
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function delete($permission_id)

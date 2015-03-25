@@ -21,7 +21,8 @@ class RoleMapper extends MySQLMapper
     }
 
     /**
-     * @param  string $name
+     * @param string $name
+     *
      * @return Role
      */
     public function findByName($name)
@@ -48,7 +49,8 @@ class RoleMapper extends MySQLMapper
     }
 
     /**
-     * @param  Permission $permission
+     * @param Permission $permission
+     *
      * @return array|Role
      */
     public function findByPermission(Permission $permission)
@@ -75,7 +77,8 @@ class RoleMapper extends MySQLMapper
     }
 
     /**
-     * @param  RoleInterface $roleable
+     * @param RoleInterface $roleable
+     *
      * @return array|Role
      */
     public function findByRoleable(RoleInterface $roleable)
@@ -129,6 +132,7 @@ class RoleMapper extends MySQLMapper
 
     /**
      * @param $params
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function add($params)
@@ -150,6 +154,7 @@ class RoleMapper extends MySQLMapper
     /**
      * @param $role_id
      * @param $params
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function update($role_id, $params)
@@ -167,7 +172,8 @@ class RoleMapper extends MySQLMapper
     }
 
     /**
-     * @param  integer                                 $role_id
+     * @param integer $role_id
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function delete($role_id)
@@ -184,6 +190,7 @@ class RoleMapper extends MySQLMapper
     /**
      * @param $role_id
      * @param $permission_id
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function addPermission($role_id, $permission_id)
@@ -205,8 +212,9 @@ class RoleMapper extends MySQLMapper
     }
 
     /**
-     * @param  integer                                 $role_id
-     * @param  integer                                 $permission_id
+     * @param integer $role_id
+     * @param integer $permission_id
+     *
      * @return \Zend\Db\Adapter\Driver\ResultInterface
      */
     public function deletePermission($role_id, $permission_id)

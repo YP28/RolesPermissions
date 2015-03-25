@@ -19,7 +19,7 @@ class PermissionController extends AbstractActionController
     }
 
     /**
-     * Catches post request to add Permission
+     * Catches post request to add Permission.
      *
      * Returns to callbackRoute:
      * \Zend\Db\Adapter\Driver\ResultInterface $result
@@ -38,7 +38,7 @@ class PermissionController extends AbstractActionController
     }
 
     /**
-     * Catches post request to edit Permission
+     * Catches post request to edit Permission.
      *
      * Returns to callbackRoute:
      * \Zend\Db\Adapter\Driver\ResultInterface $result
@@ -58,7 +58,7 @@ class PermissionController extends AbstractActionController
     }
 
     /**
-     * Catches post request to delete Permission
+     * Catches post request to delete Permission.
      *
      * Returns to callbackRoute:
      * \Zend\Db\Adapter\Driver\ResultInterface $result

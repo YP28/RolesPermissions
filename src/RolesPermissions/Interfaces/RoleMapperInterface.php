@@ -5,13 +5,7 @@ use RolesPermissions\Mappers\RoleMapper;
 interface RoleMapperInterface
 {
     /**
-     * @param  RoleMapper $roleMapper
-     * @return void
+     * @param RoleMapper $roleMapper
      */
     public function setRoleMapper(RoleMapper $roleMapper);
-<<<<<<< HEAD
-
 }
-=======
-}
->>>>>>> development

@@ -15,13 +15,13 @@ interface RoleInterface
     public function getModelType();
 
     /**
-     * @param  Role $role
-     * @return void
+     * @param Role $role
      */
     public function addRole(Role $role);
 
     /**
-     * @param  string  $role
+     * @param string $role
+     *
      * @return boolean
      */
     public function hasRole($role);
@@ -29,6 +29,7 @@ interface RoleInterface
     /**
      * @param $subject
      * @param $type
+     *
      * @return boolean
      */
     public function hasPermission($subject, $type);
