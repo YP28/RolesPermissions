@@ -6,6 +6,7 @@ use Mockery as m;
 
 class RoleControllerTest extends PHPUnit_Framework_TestCase
 {
+
     /**
      * Tests if RoleController dependency is set correctly
      */
@@ -19,4 +20,5 @@ class RoleControllerTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('RolesPermissions\Mappers\RoleMapper', $reflectionProperty->getValue($roleController));
     }
+    
 }
