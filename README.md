@@ -1,4 +1,3 @@
-[![Build Status](https://magnum.travis-ci.com/YP28/RolesPermissions.svg?token=rvC49957Ex38pMQhKp6m)](https://magnum.travis-ci.com/YP28/RolesPermissions)
 # RolesPermissions
 Roles and Permissions module for Zend Framework 2.
 
@@ -73,7 +72,6 @@ git clone https://github.com/YP28/RolesPermissions
 ```
 
 #### Composer
-Not available at this moment.
 ```
 composer require yp28/roles-permissions dev-master
 ```
