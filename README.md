@@ -63,17 +63,17 @@ POST - requires following parameters:
     permission_id - integer, the ID of the Permission to be deleted
 ```
 
+#### Composer (recommended)
+```
+composer require yp28/roles-permissions dev-master
+```
+
 ## Installation
 
 #### Clone repository
 Go to your Zend Framework 2 module folder in your console, and execute:
 ```
 git clone https://github.com/YP28/RolesPermissions
-```
-
-#### Composer
-```
-composer require yp28/roles-permissions dev-master
 ```
 
 ### Database structure
