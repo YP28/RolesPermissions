@@ -141,7 +141,7 @@ class UserMapper implements RoleMapperInterface
     
     public function mapperMethod()
     {
-        ...Getting user here...
+        ...Get user here...
         $user->setRoles($this->roleMapper->findByRoleable($user));
         return $user;
     }
@@ -153,7 +153,7 @@ class UserMapperFactory implements FactoryInterface
 {
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $um = new UserMapper(...Initialize UserMapper instance here...);
+        $um = new UserMapper(/*UserMapper constructor injection*/);
         $um->setRoleMapper($serviceLocator->get('RoleMapper'));
         return $um;
     }

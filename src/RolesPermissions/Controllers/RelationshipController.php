@@ -2,6 +2,7 @@
 
 use RolesPermissions\Interfaces\RoleInterface;
 use RolesPermissions\Mappers\RelationshipMapper;
+use RolesPermissions\Models\Role;
 use Zend\Mvc\Controller\AbstractActionController;
 
 class RelationshipController extends AbstractActionController

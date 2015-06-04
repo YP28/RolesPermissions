@@ -19,12 +19,18 @@ trait RoleTrait
 
     /**
      * @param Role $role
+     * @return $this
      */
     public function addRole(Role $role)
     {
         $this->roles[$role->getName()] = $role;
+        return $this;
     }
 
+    /**
+     * @param array|Role $roles
+     * @return $this
+     */
     public function setRoles(array $roles)
     {
         foreach ($roles as $role) {
@@ -32,6 +38,7 @@ trait RoleTrait
                 $this->addRole($role);
             }
         }
+        return $this;
     }
 
     /**
@@ -61,6 +68,9 @@ trait RoleTrait
         return false;
     }
 
+    /**
+     * @return array|Role
+     */
     public function getRoles()
     {
         return $this->roles;
