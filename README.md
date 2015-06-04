@@ -141,7 +141,7 @@ class UserMapper implements RoleMapperInterface
     
     public function mapperMethod()
     {
-        ...Get user here...
+        /* Get user here */
         $user->setRoles($this->roleMapper->findByRoleable($user));
         return $user;
     }
