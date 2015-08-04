@@ -16,16 +16,16 @@ class RelationshipMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $insert = $sql->insert(Role::$tableToRoleable)
-            ->columns(array(
+            ->columns([
                 'role_id',
                 'roleable_type',
                 'roleable_id',
-            ))
-            ->values(array(
+            ])
+            ->values([
                 $role->getId(),
                 $roleable->getModelType(),
                 $roleable->getId(),
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($insert);
 
@@ -42,11 +42,11 @@ class RelationshipMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $delete = $sql->delete(Role::$tableToRoleable)
-            ->where(array(
+            ->where([
                 'role_id = ?' => $role->getId(),
                 'roleable_type = ?' => $roleable->getModelType(),
                 'roleable_id = ?' => $roleable->getId(),
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($delete);
 

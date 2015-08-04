@@ -29,7 +29,7 @@ class RoleMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $select = $sql->select(Role::$table)
-            ->where(array('name = ?' => $name));
+            ->where(['name = ?' => $name]);
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
@@ -56,14 +56,14 @@ class RoleMapper extends MySQLMapper
     public function findByPermission(Permission $permission)
     {
         $sql = new Sql($this->dbAdapter);
-        $select = $sql->select(array('p' => Permission::$table))
-            ->join(array('pr' => Permission::$tableToRoles), 'p.id = pr.role_id', array())
-            ->join(array('r' => Role::$table), 'pr.permission_id = r.id', array());
+        $select = $sql->select(['p' => Permission::$table])
+            ->join(['pr' => Permission::$tableToRoles], 'p.id = pr.role_id', [])
+            ->join(['r' => Role::$table], 'pr.permission_id = r.id', []);
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
-        $return = array();
+        $return = [];
         foreach ($result as $roleRow) {
             $tmpRole = new Role();
             $tmpRole->setId($roleRow['id']);
@@ -84,17 +84,17 @@ class RoleMapper extends MySQLMapper
     public function findByRoleable(RoleInterface $roleable)
     {
         $sql = new Sql($this->dbAdapter);
-        $select = $sql->select(array('r' => Role::$table))
-            ->join(array('rr' => Role::$tableToRoleable), 'r.id = rr.role_id', array())
-            ->where(array(
+        $select = $sql->select(['r' => Role::$table])
+            ->join(['rr' => Role::$tableToRoleable], 'r.id = rr.role_id', [])
+            ->where([
                 'rr.roleable_type = ?' => $roleable->getModelType(),
                 'rr.roleable_id =?' => $roleable->getId(),
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
-        $return = array();
+        $return = [];
         foreach ($result as $roleRow) {
             $tmpRole = new Role();
             $tmpRole->setId($roleRow['id']);
@@ -117,7 +117,7 @@ class RoleMapper extends MySQLMapper
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
-        $return = array();
+        $return = [];
         foreach ($result as $roleRow) {
             $tmpRole = new Role();
             $tmpRole->setId($roleRow['id']);
@@ -139,12 +139,12 @@ class RoleMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $add = $sql->insert(Role::$table)
-            ->columns(array(
+            ->columns([
                 'name',
-            ))
-            ->values(array(
+            ])
+            ->values([
                 $params->fromPost('role_name'),
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($add);
 
@@ -160,11 +160,11 @@ class RoleMapper extends MySQLMapper
     public function update($role_id, $params)
     {
         $sql = new Sql($this->dbAdapter);
-        $update = $sql->update(Role::$table)->set(array(
+        $update = $sql->update(Role::$table)->set([
             'name' => $params->fromPost('role_name'),
-        ))->where(array(
+        ])->where([
             'id = ?' => $role_id,
-        ));
+        ]);
 
         $stmt = $sql->prepareStatementForSqlObject($update);
 
@@ -180,7 +180,7 @@ class RoleMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $delete = $sql->delete(Role::$table)
-            ->where(array('id = ?' => $role_id));
+            ->where(['id = ?' => $role_id]);
 
         $stmt = $sql->prepareStatementForSqlObject($delete);
 
@@ -197,14 +197,14 @@ class RoleMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $insert = $sql->insert(Permission::$tableToRoles)
-            ->columns(array(
+            ->columns([
                 'role_id',
                 'permission_id',
-            ))
-            ->values(array(
+            ])
+            ->values([
                 $role_id,
                 $permission_id,
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($insert);
 
@@ -221,10 +221,10 @@ class RoleMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $delete = $sql->delete(Permission::$tableToRoles)
-            ->where(array(
+            ->where([
                 'role_id = ?' => $role_id,
                 'permission_id = ?' => $permission_id,
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($delete);
 

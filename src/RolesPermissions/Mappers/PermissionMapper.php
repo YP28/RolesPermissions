@@ -15,7 +15,7 @@ class PermissionMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $select = $sql->select(Permission::$table)
-            ->where(array('name = ?', $name));
+            ->where(['name = ?', $name]);
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
@@ -40,15 +40,15 @@ class PermissionMapper extends MySQLMapper
     public function findByRole(Role $role)
     {
         $sql = new Sql($this->dbAdapter);
-        $select = $sql->select(array('p' => Permission::$table))
-            ->join(array('pr' => Permission::$tableToRoles), 'p.id = pr.permission_id', array())
-            ->join(array('r' => Role::$table), 'pr.role_id = r.id', array())
-            ->where(array('r.id = ?' => $role->getId()));
+        $select = $sql->select(['p' => Permission::$table])
+            ->join(['pr' => Permission::$tableToRoles], 'p.id = pr.permission_id', [])
+            ->join(['r' => Role::$table], 'pr.role_id = r.id', [])
+            ->where(['r.id = ?' => $role->getId()]);
 
         $stmt = $sql->prepareStatementForSqlObject($select);
         $result = $stmt->execute();
 
-        $return = array();
+        $return = [];
         foreach ($result as $permissionRow) {
             $tmpPermission = new Permission();
             $tmpPermission->setId($permissionRow['id']);
@@ -70,14 +70,14 @@ class PermissionMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $add = $sql->insert(Permission::$table)
-            ->columns(array(
+            ->columns([
                 'subject',
                 'type',
-            ))
-            ->values(array(
+            ])
+            ->values([
                 $params->fromPost('permission_subject'),
                 $params->fromPost('permission_type'),
-            ));
+            ]);
 
         $stmt = $sql->prepareStatementForSqlObject($add);
 
@@ -93,12 +93,12 @@ class PermissionMapper extends MySQLMapper
     public function update($permission_id, $params)
     {
         $sql = new Sql($this->dbAdapter);
-        $update = $sql->update(Permission::$table)->set(array(
+        $update = $sql->update(Permission::$table)->set([
             'subject' => $params->fromPost('permission_subject'),
             'type' => $params->fromPost('permission_type'),
-        ))->where(array(
+        ])->where([
             'id' => $permission_id,
-        ));
+        ]);
 
         $stmt = $sql->prepareStatementForSqlObject($update);
 
@@ -114,7 +114,7 @@ class PermissionMapper extends MySQLMapper
     {
         $sql = new Sql($this->dbAdapter);
         $update = $sql->delete(Permission::$table)
-            ->where(array('id' => $permission_id));
+            ->where(['id' => $permission_id]);
 
         $stmt = $sql->prepareStatementForSqlObject($update);
 

@@ -31,10 +31,10 @@ class RoleController extends AbstractActionController
 
         $result = $this->roleMapper->add($this->params());
 
-        $this->redirect()->toRoute($callbackRoute, array(
+        $this->redirect()->toRoute($callbackRoute, [
             'result' => $result,
             'params' => $this->params(),
-        ));
+        ]);
     }
 
     /**
@@ -51,10 +51,10 @@ class RoleController extends AbstractActionController
 
         $result = $this->roleMapper->update($roleId, $this->params());
 
-        $this->redirect()->toRoute($callbackRoute, array(
+        $this->redirect()->toRoute($callbackRoute, [
             'result' => $result,
             'params' => $this->params(),
-        ));
+        ]);
     }
 
     /**
@@ -71,9 +71,9 @@ class RoleController extends AbstractActionController
 
         $result = $this->roleMapper->delete($roleId);
 
-        $this->redirect()->toRoute($callbackRoute, array(
+        $this->redirect()->toRoute($callbackRoute, [
             'result' => $result,
             'params' => $this->params(),
-        ));
+        ]);
     }
 }

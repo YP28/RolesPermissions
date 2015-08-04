@@ -7,7 +7,7 @@ trait RoleTrait
     /**
      * @var array|Role
      */
-    protected $roles = array();
+    protected $roles = [];
 
     /**
      * @return string

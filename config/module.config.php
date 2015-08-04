@@ -1,6 +1,6 @@
-<?php return array(
-    'service_manager' => array(
-        'factories' => array(
+<?php return [
+    'service_manager' => [
+        'factories' => [
             /*
              * Mappers
              */
@@ -12,109 +12,109 @@
              * Controllers (as a service)
              */
             'RelationshipController'        => 'RolesPermissions\Factories\Controllers\RelationshipControllerFactory',
-        )
-    ),
-    'controllers' => array(
-        'factories' => array(
+        ],
+    ],
+    'controllers' => [
+        'factories' => [
             'RoleController'                => 'RolesPermissions\Factories\Controllers\RoleControllerFactory',
             'PermissionController'          => 'RolesPermissions\Factories\Controllers\PermissionControllerFactory',
-        )
-    ),
-    'router' => array(
-        'routes' => array(
-            'rolespermissions' => array(
+        ],
+    ],
+    'router' => [
+        'routes' => [
+            'rolespermissions' => [
                 'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
+                'options' => [
                     'route' => '/rolespermissions',
-                ),
+                ],
                 'may_terminate' => false,
-                'child_routes' => array(
-                    'roles' => array(
+                'child_routes' => [
+                    'roles' => [
                         'type' => 'Zend\Mvc\Router\Http\Literal',
-                        'options' => array(
+                        'options' => [
                             'route' => '/roles',
-                        ),
+                        ],
                         'may_terminate' => false,
-                        'child_routes' => array(
-                            'add' => array(
+                        'child_routes' => [
+                            'add' => [
                                 'type' => 'Zend\Mvc\Router\Http\Method',
-                                'options' => array(
+                                'options' => [
                                     'verb' => 'post',
                                     'route' => '/add',
-                                    'defaults' => array(
+                                    'defaults' => [
                                         'controller' => 'RoleController',
-                                        'action' => 'add'
-                                    ),
-                                ),
-                            ),
-                            'edit' => array(
+                                        'action' => 'add',
+                                    ],
+                                ],
+                            ],
+                            'edit' => [
                                 'type' => 'Zend\Mvc\Router\Http\Method',
-                                'options' => array(
+                                'options' => [
                                     'verb' => 'post',
                                     'route' => '/update',
-                                    'defaults' => array(
+                                    'defaults' => [
                                         'controller' => 'RoleController',
-                                        'action' => 'update'
-                                    ),
-                                ),
-                            ),
-                            'delete' => array(
+                                        'action' => 'update',
+                                    ],
+                                ],
+                            ],
+                            'delete' => [
                                 'type' => 'Zend\Mvc\Router\Http\Method',
-                                'options' => array(
+                                'options' => [
                                     'verb' => 'post',
                                     'route' => '/edit',
-                                    'defaults' => array(
+                                    'defaults' => [
                                         'controller' => 'RoleController',
-                                        'action' => 'delete'
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    'permissions' => array(
+                                        'action' => 'delete',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                    'permissions' => [
                         'type' => 'Zend\Mvc\Router\Http\Literal',
-                        'options' => array(
+                        'options' => [
                             'route' => '/permissions',
-                        ),
+                        ],
                         'may_terminate' => false,
-                        'child_routes' => array(
-                            'add' => array(
+                        'child_routes' => [
+                            'add' => [
                                 'type' => 'Zend\Mvc\Router\Http\Method',
-                                'options' => array(
+                                'options' => [
                                     'verb' => 'post',
                                     'route' => '/add',
-                                    'defaults' => array(
+                                    'defaults' => [
                                         'controller' => 'PermissionController',
-                                        'action' => 'add'
-                                    ),
-                                ),
-                            ),
-                            'edit' => array(
+                                        'action' => 'add',
+                                    ],
+                                ],
+                            ],
+                            'edit' => [
                                 'type' => 'Zend\Mvc\Router\Http\Method',
-                                'options' => array(
+                                'options' => [
                                     'verb' => 'post',
                                     'route' => '/update',
-                                    'defaults' => array(
+                                    'defaults' => [
                                         'controller' => 'PermissionController',
-                                        'action' => 'update'
-                                    ),
-                                ),
-                            ),
-                            'delete' => array(
+                                        'action' => 'update',
+                                    ],
+                                ],
+                            ],
+                            'delete' => [
                                 'type' => 'Zend\Mvc\Router\Http\Method',
-                                'options' => array(
+                                'options' => [
                                     'verb' => 'post',
                                     'route' => '/delete',
-                                    'defaults' => array(
+                                    'defaults' => [
                                         'controller' => 'PermissionController',
-                                        'action' => 'delete'
-                                    ),
-                                ),
-                            ),
-                        )
-                    )
-                )
-            )
-        )
-    )
-);
+                                        'action' => 'delete',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+];

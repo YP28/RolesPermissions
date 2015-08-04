@@ -31,10 +31,10 @@ class PermissionController extends AbstractActionController
 
         $result = $this->permissionMapper->add($this->params());
 
-        $this->redirect()->toRoute($callbackRoute, array(
+        $this->redirect()->toRoute($callbackRoute, [
             'result' => $result,
             'params' => $this->params(),
-        ));
+        ]);
     }
 
     /**
@@ -51,10 +51,10 @@ class PermissionController extends AbstractActionController
 
         $result = $this->permissionMapper->update($permissionId, $this->params());
 
-        $this->redirect()->toRoute($callbackRoute, array(
+        $this->redirect()->toRoute($callbackRoute, [
             'result' => $result,
             'params' => $this->params(),
-        ));
+        ]);
     }
 
     /**
@@ -71,9 +71,9 @@ class PermissionController extends AbstractActionController
 
         $result = $this->permissionMapper->delete($permissionId);
 
-        $this->redirect()->toRoute($callbackRoute, array(
+        $this->redirect()->toRoute($callbackRoute, [
             'result' => $result,
             'params' => $this->params(),
-        ));
+        ]);
     }
 }

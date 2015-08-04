@@ -2,12 +2,9 @@
 
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\Mvc\MvcEvent;
-use Zend\EventManager\SharedEventManager;
 
 class Module implements ConfigProviderInterface, AutoloaderProviderInterface
 {
-
     /**
      * @return array
      */
@@ -21,12 +18,12 @@ class Module implements ConfigProviderInterface, AutoloaderProviderInterface
      */
     public function getAutoloaderConfig()
     {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
+        return [
+            'Zend\Loader\StandardAutoloader' => [
+                'namespaces' => [
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                )
-            )
-        );
+                ],
+            ],
+        ];
     }
 }
