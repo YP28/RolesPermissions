@@ -46,3 +46,4 @@ $config->fixers(
 );
 $config->finder($finder);
 return $config;
+
