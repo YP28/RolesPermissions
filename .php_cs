@@ -23,6 +23,7 @@ $config->fixers(
         'line_after_namespace',
         'linefeed',
         'lowercase_keywords',
+        'lowercase_constants',
         'parenthesis',
         'multiple_use',
         'method_argument_space',
@@ -32,12 +33,15 @@ $config->fixers(
         'remove_lines_between_uses',
         'short_tag',
         'short_array_syntax',
+        'single_array_no_trailing_comma',
         'multiline_array_trailing_comma',
         'standardize_not_equal',
         'trailing_spaces',
         'unused_use',
         'visibility',
         'whitespacy_lines',
+        'ternary_spaces',
+        'single_quote',
     )
 );
 $config->finder($finder);
