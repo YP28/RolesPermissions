@@ -162,8 +162,3 @@ class UserMapperFactory implements FactoryInterface
 
 ## Bugs or problems
 If you're having problems implementing the module or found bugs in it, please open in issue in this repository so it will help others.
-
-Oh yeah, any help in testing would be swell.
-
-### Module
-This module is created for Telefoonboek B.V. to simplify user permissions.
